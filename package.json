@@ -1,0 +1,24 @@
+{
+  "name": "todoist.reports",
+  "version": "1.0.0",
+  "description": "A Node CLI to get reports from Todoist.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexlapinski/todoist.reports.git"
+  },
+  "author": "Alex Lapinski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexlapinski/todoist.reports/issues"
+  },
+  "homepage": "https://github.com/alexlapinski/todoist.reports#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "ramda": "^0.27.0"
+  }
+}
