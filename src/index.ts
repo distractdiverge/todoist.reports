@@ -1,16 +1,15 @@
-const r = require('ramda');
-const dotenv = require('dotenv');
-const Todoist = require('./todoist.client');
+import * as r from 'ramda';
+import * as dotenv from 'dotenv';
+import * as Todoist from './todoist.client';
+import { getConfig } from './config';
 
-const getConfig = () => ({
-    baseUrl:        process.env.BASE_URL || undefined,
-    personalApiKey: process.env.PERSONAL_API_KEY || undefined,
-    clientId:       process.env.CLIENT_ID || undefined,
-    clientSecret:   process.env.CLIENT_SECRET || undefined,
+// TODO: Pretty Print Report
+const printReport = r.forEach(
+    item => {
+        console.log(`${item.completed_date}: ${item.content}`)
+    });
 
-});
-
-const main = async () => {
+const main = async (): Promise<void> => {
     const config = getConfig();
 
     console.log('Getting Auth Token');
@@ -31,13 +30,6 @@ const main = async () => {
 
     printReport(completedItems);
 };
-
-// TODO: Pretty Print Report
-const printReport = r.forEach(
-    item => {
-        console.log(`${item.completed_date}: ${item.content}`)
-    });
-
 
 if (require.main === module) {
     dotenv.config();
