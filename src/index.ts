@@ -23,7 +23,7 @@ const main = async (): Promise<void> => {
 
     const client = Todoist.getClient(config.baseUrl, token);
 
-    const workProjectId = 2004774015;
+    const workProjectId = '2004774015';
     const completedItems = await Todoist.getCompletedItems(client, workProjectId);
 
     console.log(`Got ${completedItems.length} items`);
