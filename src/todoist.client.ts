@@ -1,5 +1,16 @@
 import Axios, { AxiosInstance } from 'axios';
 
+interface CompletedItem {
+    content: string;
+    legacy_project_id: number;
+    meta_data: object;
+    user_id: number;
+    task_id: number;
+    project_id: number;
+    completed_date: Date;
+    id: number;
+}
+
 const getClient = (baseUrl: string, token: string): AxiosInstance =>
     Axios.create({
         baseURL: baseUrl,
@@ -36,14 +47,12 @@ const getAuthToken = (baseUrl: string, clientId: string, clientSecret: string, p
         return response.data.access_token;
     });
 
-const getCompletedItems = (client: AxiosInstance, projectId: string): Promise<object[]> =>
+const getCompletedItems = (client: AxiosInstance, projectId: string): Promise<CompletedItem[]> =>
     client(`/sync/v8/completed/get_all?project_id=${projectId}`)
     .then(response => {
         if (response.status !== 200) {
             throw new Error('Unable to get Completed Items');
         }
-
-        console.log(JSON.stringify(response.data.items[0], null, 2));
 
         return response.data.items;
     });

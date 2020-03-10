@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src --ext ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prestart": "npm run -s build",
+    "start": "node ./dist/index.js"
   },
   "repository": {
     "type": "git",
