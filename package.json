@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/alexlapinski/todoist.reports#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "ramda": "^0.27.0"
   },
